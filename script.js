@@ -68,10 +68,33 @@ const listCreator = (expenseName, expenseValue) => {
   let deleteButton = document.createElement("button");
   deleteButton.classList.add("fa-solid", "fa-trash", "delete");
   deleteButton.style.fontSize = "24px";
-  deleteButton.addEventListener("click",()=>{
-    modifyElement(deleteButton)
-  })
+  deleteButton.addEventListener("click", () => {
+    modifyElement(deleteButton);
+  });
   sublistContent.appendChild(editButton);
   sublistContent.appendChild(deleteButton);
   document.getElementById("list").appendChild(sublistContent);
 };
+
+//Function To Add Expenses
+checkAmountButton.addEventListener("click", () => {
+  //empty checks
+  if (!userAmount.value || !productTitle.value) {
+    productCostError.classList.remove("hide");
+    return false;
+  }
+  //Enable Buttons
+  disableButtons(false);
+  //Expenses
+  let expenditure = parseInt(userAmount.value);
+  //Total expense (existing + new)
+  let sum = parseInt(expenditureValue.innerText) + expenditure;
+  expenditureValue.innerText=sum;
+  //Total Balance(Budget - Total Expense)
+  const totalBalance=tempAmount - sum;
+  balanceValue.innerText=totalBalance;
+  //create list
+  listCreator(productTitle.value,userAmount.value);
+  productTitle.value="";
+  userAmount.value="";
+});
