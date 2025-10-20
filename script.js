@@ -26,3 +26,5 @@ totalAmountButton.addEventListener("click",()=>{
     balanceValue.innerText=tempAmount - expenditureValue.innerText;
     totalAmount.value="";
 })
+
+//Function To Disable Edit and Delete Button
