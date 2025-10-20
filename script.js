@@ -57,8 +57,10 @@ const listCreator = (expenseName, expenseValue) => {
   let sublistContent = document.createElement("div");
   sublistContent.classList.add("sublist-content", "flex-space");
   list.appendChild(sublistContent);
-  sublistContent.innerHTML = `<p class="product">
- ${expenseName}<p class="amount">${expenditureValue}</p></p>`;
+ sublistContent.innerHTML = `
+  <p class="product">${expenseName}</p>
+  <p class="amount">${expenseValue}</p>
+`;
   let editButton = document.createElement("button");
   editButton.classList.add("fa-solid", "fa-pen-to-square", "edit");
   editButton.style.fontSize = "24px";
@@ -89,12 +91,12 @@ checkAmountButton.addEventListener("click", () => {
   let expenditure = parseInt(userAmount.value);
   //Total expense (existing + new)
   let sum = parseInt(expenditureValue.innerText) + expenditure;
-  expenditureValue.innerText=sum;
+  expenditureValue.innerText = sum;
   //Total Balance(Budget - Total Expense)
-  const totalBalance=tempAmount - sum;
-  balanceValue.innerText=totalBalance;
+  const totalBalance = tempAmount - sum;
+  balanceValue.innerText = totalBalance;
   //create list
-  listCreator(productTitle.value,userAmount.value);
-  productTitle.value="";
-  userAmount.value="";
+  listCreator(productTitle.value, userAmount.value);
+  productTitle.value = "";
+  userAmount.value = "";
 });
