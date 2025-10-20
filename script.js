@@ -57,7 +57,7 @@ const listCreator = (expenseName, expenseValue) => {
   let sublistContent = document.createElement("div");
   sublistContent.classList.add("sublist-content", "flex-space");
   list.appendChild(sublistContent);
- sublistContent.innerHTML = `
+  sublistContent.innerHTML = `
   <p class="product">${expenseName}</p>
   <p class="amount">${expenseValue}</p>
 `;
